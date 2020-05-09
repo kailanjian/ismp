@@ -6,17 +6,22 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-  django:
-    build: ./api
-    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+      POSTGRES_PASSWORD: "postgres"
     volumes:
-      - ./api:/app/api
+      - ./backend/data:/var/lib/postgresql/data
+  django:
+    image: richyen/ismp-backend
+    build: ./backend
+    volumes:
+      - ./backend:/app/api
     ports:
       - "8000:8000"
     depends_on:
       - db
+    entrypoint:
+      - "/app/api/api-entrypoint.sh"
   frontend:
+    image: richyen/ismp-frontend
     build: ./frontend
     command: ["npm", "start"]
     volumes:

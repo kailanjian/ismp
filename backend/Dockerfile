@@ -1,4 +1,4 @@
-FROM python:3.4
+FROM python:3.8
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -7,6 +7,7 @@ RUN apt-get update \
 
 WORKDIR /app/api
 COPY requirements.txt /app/api
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
