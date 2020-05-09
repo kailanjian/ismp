@@ -21,7 +21,7 @@ const style = {
 
   mainContainer: {
     display: "grid",
-    gridTemplateColumns: "300px 1fr",
+    gridTemplateColumns: "100px 1fr",
     alignItems: "center",
     paddingTop: 15,
     height: 65,
