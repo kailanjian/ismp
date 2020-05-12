@@ -95,7 +95,7 @@ const MainHeader = () => {
   )
 }
 
-const EntireHeader = () => {
+const Header = () => {
   return(
     <div style={style.headerContainer}>
       <SubHeader/>
@@ -104,4 +104,4 @@ const EntireHeader = () => {
   )
 }
 
-export default EntireHeader;
+export default Header;
